@@ -1,0 +1,68 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+
+  <title>BMI</title>
+  <meta name="description" content="BMI">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+    <form name="bmiForm">
+    Din vægt(kg): <input type="text" name="weight" size="10" /><br />
+    Din højde(cm): <input type="text" name="height" size="10" /><br />
+
+  <button type="button" onclick="calculateBMI()">Udregn BMI</button> <br />
+  Din BMI: <input type="text" name="bmi" size="10" /><br />
+  Status: <input type="text" name="status" size="10" /><br />
+  
+    </form>
+
+
+  <script>
+    function calculateBMI() 
+    {
+        
+      var weight = document.bmiForm.weight.value
+      var height = document.bmiForm.height.value
+
+      var BMI = (weight / (height / 100 * height / 100))
+
+      document.bmiForm.bmi.value = BMI
+      if (BMI > 16 && BMI < 18.5)
+      {
+        status = "Undervægtig"
+      }
+      else if (BMI > 18.5 && BMI < 24)
+      {
+          status = "Normalvægtig"
+      }
+      else if (BMI > 24 && BMI < 30)
+      {
+          status = "Overvægtig"
+      }
+      else if (BMI > 30 && BMI < 35)
+      {
+        status = "Meget tyk"
+      }
+      else if (BMI > 35 && BMI < 40)
+      {
+        status = "Ulækkert tyk"   
+      }
+      else
+      {
+          status = "Gå til lægen"
+      }
+      document.bmiForm.status.value = status
+      }
+     
+  </script>
+
+</body>
+</html>
